@@ -8,9 +8,14 @@ export default function Home() {
       <p className="lede">
         TripMaxxing turns a destination, dates, and a budget into a day-by-day itinerary.
       </p>
-      <Link className="button" to="/plan">
-        Start planning
-      </Link>
+      <div className="hero-actions">
+        <Link className="button" to="/plan">
+          Start planning
+        </Link>
+        <Link className="button secondary" to="/group">
+          Plan a group
+        </Link>
+      </div>
     </section>
   );
 }

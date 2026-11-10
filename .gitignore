@@ -5,6 +5,9 @@ __pycache__/
 *.pyc
 .env
 
+# Local development database
+backend/data/*.db
+
 # React / Node
 node_modules/
 dist/

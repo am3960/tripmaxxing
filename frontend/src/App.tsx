@@ -1,4 +1,5 @@
 import { NavLink, Route, Routes } from "react-router-dom";
+import Group from "./pages/Group";
 import Home from "./pages/Home";
 import Itinerary from "./pages/Itinerary";
 import Plan from "./pages/Plan";
@@ -15,6 +16,7 @@ export default function App() {
           <NavLink to="/plan">Plan</NavLink>
           <NavLink to="/preferences">Preferences</NavLink>
           <NavLink to="/itinerary">Itinerary</NavLink>
+          <NavLink to="/group">Group</NavLink>
         </nav>
       </header>
       <main className="main">
@@ -23,6 +25,8 @@ export default function App() {
           <Route path="/plan" element={<Plan />} />
           <Route path="/preferences" element={<Preferences />} />
           <Route path="/itinerary" element={<Itinerary />} />
+          <Route path="/group" element={<Group />} />
+          <Route path="/group/:groupId" element={<Group />} />
         </Routes>
       </main>
     </div>
