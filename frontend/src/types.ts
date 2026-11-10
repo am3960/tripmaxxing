@@ -85,3 +85,67 @@ export type SavedGroup = {
   groupInterests: Interest[];
   members: MemberProfile[];
 };
+
+export type ActivityKind = "activity" | "lunch" | "dinner" | "stop";
+
+export type Activity = {
+  id: string;
+  name: string;
+  category: string;
+  summary: string;
+  kind: ActivityKind;
+  startTime: string;
+  endTime: string;
+  durationMin: number;
+  priceUsd: number;
+  rating: number;
+  travelMinFromPrevious: number;
+};
+
+export type DayPlan = {
+  date: string;
+  activities: Activity[];
+  dayCostUsd: number;
+};
+
+export type SwapOption = {
+  dayIndex: number;
+  activityId: string;
+  replacement: {
+    id: string;
+    name: string;
+    category: string;
+    summary: string;
+    kind: ActivityKind;
+    durationMin: number;
+    priceUsd: number;
+    rating: number;
+  };
+};
+
+export type ExtraSuggestion = {
+  id: string;
+  name: string;
+  category: string;
+  summary: string;
+  priceUsd: number;
+  durationMin: number;
+  rating: number;
+};
+
+export type Itinerary = {
+  id: string;
+  destination: string;
+  stops: string[];
+  startDate: string;
+  endDate: string;
+  budgetUsd: number;
+  totalCostUsd: number;
+  totalTravelMin: number;
+  days: DayPlan[];
+  swaps: SwapOption[];
+  extras: ExtraSuggestion[];
+  warnings: string[];
+  dataSource: "sample";
+  createdAt: string;
+};

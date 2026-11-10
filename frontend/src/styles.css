@@ -54,6 +54,24 @@ a {
   font-weight: 650;
 }
 
+.nav-signin {
+  margin-top: 0;
+  padding: 0.4rem 0.8rem;
+}
+
+.account {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #4e4842;
+}
+
+.account img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+
 .main {
   width: min(880px, calc(100% - 2rem));
   margin: 2rem auto 3rem;
@@ -90,7 +108,9 @@ a {
 }
 
 .button {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 0.5rem;
   padding: 0.7rem 1rem;
   border: 0;
@@ -119,6 +139,18 @@ a {
   flex-wrap: wrap;
   gap: 0.75rem;
   align-items: center;
+}
+
+.hero-actions .button {
+  margin-top: 0;
+}
+
+.hero-actions .note {
+  flex-basis: 100%;
+}
+
+.signed-in {
+  margin-top: 0.25rem;
 }
 
 .form,
@@ -387,10 +419,146 @@ input {
   cursor: wait;
 }
 
+.banner,
+.note,
+.warning {
+  margin: 0;
+  padding: 0.75rem 0.9rem;
+  border-radius: 12px;
+}
+
+.banner {
+  background: #e7f3f2;
+}
+
+.banner.over,
+.warning {
+  background: #fff1ea;
+  color: #9b3412;
+}
+
+.note {
+  background: #f7f4ee;
+  color: #6b645c;
+}
+
+.days,
+.extras,
+.saved {
+  display: grid;
+  gap: 1rem;
+}
+
+.saved {
+  margin-top: 1.5rem;
+}
+
+.saved h2,
+.extras h2,
+.day h2,
+.activity h3 {
+  margin: 0;
+}
+
+.day {
+  padding-top: 0.5rem;
+  border-top: 1px solid #e4ddd2;
+}
+
+.day-header,
+.activity,
+.saved-card {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+}
+
+.activities {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+}
+
+.time,
+.price,
+.travel,
+.summary,
+.saved-card p,
+.extras span,
+.extras p {
+  margin: 0;
+}
+
+.time,
+.price {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+  color: #6b645c;
+  font-size: 0.92rem;
+}
+
+.activity h3 {
+  margin-top: 0.15rem;
+}
+
+.summary {
+  color: #4e4842;
+}
+
+.price {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.price span,
+.time span {
+  display: block;
+}
+
+.extras ul,
+.saved-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.extras li,
+.saved-card {
+  padding: 0.85rem 0;
+  border-top: 1px solid #e4ddd2;
+}
+
+.extras span,
+.saved-card p,
+.travel {
+  color: #6b645c;
+}
+
+.day .button {
+  margin-top: 0.75rem;
+}
+
 @media (max-width: 800px) {
   .split,
   .split-2 {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .activity,
+  .saved-card,
+  .day-header {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .price {
+    text-align: left;
   }
 }
 

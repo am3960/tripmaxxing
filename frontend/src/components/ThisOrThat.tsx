@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { loadDraft, saveDraft } from "../storage";
+import { planTrip } from "../api/plan";
+import { loadDraft, saveCurrent, saveDraft } from "../storage";
 import type { Preferences } from "../types";
 
 const PAIRS: {
@@ -40,6 +41,7 @@ export default function ThisOrThat() {
   const draft = loadDraft();
   const [step, setStep] = useState(0);
   const [choices, setChoices] = useState<Partial<Preferences>>(draft.preferences ?? {});
+  const [busy, setBusy] = useState(false);
 
   if (!draft.details) {
     return (
@@ -52,14 +54,20 @@ export default function ThisOrThat() {
   const pair = PAIRS[step];
   const selected = choices[pair.key];
 
-  function choose(value: Preferences[keyof Preferences]) {
+  async function choose(value: Preferences[keyof Preferences]) {
     const next = { ...choices, [pair.key]: value };
     setChoices(next);
     if (step < PAIRS.length - 1) {
       setStep(step + 1);
       return;
     }
-    saveDraft({ ...loadDraft(), preferences: next as Preferences });
+    const details = loadDraft().details;
+    if (!details) return;
+    const preferences = next as Preferences;
+    saveDraft({ details, preferences });
+    setBusy(true);
+    const itinerary = await planTrip({ ...details, preferences });
+    saveCurrent(itinerary);
     navigate("/itinerary");
   }
 
@@ -73,6 +81,7 @@ export default function ThisOrThat() {
         <button
           type="button"
           className={selected === pair.left.value ? "choice selected" : "choice"}
+          disabled={busy}
           onClick={() => choose(pair.left.value)}
         >
           {pair.left.label}
@@ -80,6 +89,7 @@ export default function ThisOrThat() {
         <button
           type="button"
           className={selected === pair.right.value ? "choice selected" : "choice"}
+          disabled={busy}
           onClick={() => choose(pair.right.value)}
         >
           {pair.right.label}
