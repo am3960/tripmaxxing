@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { applyCheaperSwap } from "../api/plan";
 import DayCard from "../components/DayCard";
+import TripMap from "../components/TripMap";
 import { formatMoney } from "../format";
 import { loadCurrent, saveCurrent, saveTrip } from "../storage";
 
@@ -50,6 +51,7 @@ export default function Itinerary() {
         </p>
       ))}
       <p className="note">Costs, ratings, and travel times are sample estimates, not live data.</p>
+      <TripMap places={[trip.destination, ...trip.stops]} />
 
       <div className="days">
         {trip.days.map((day, index) => (

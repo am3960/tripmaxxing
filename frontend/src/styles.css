@@ -456,8 +456,38 @@ input {
 .saved h2,
 .extras h2,
 .day h2,
+.trip-map h2,
 .activity h3 {
   margin: 0;
+}
+
+.trip-map {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.trip-map-canvas {
+  height: 320px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #e7e2d8;
+}
+
+.trip-map-popup {
+  display: grid;
+  gap: 0.25rem;
+  max-width: 16rem;
+  color: #1c1915;
+}
+
+.trip-map-popup p,
+.trip-map-popup a {
+  margin: 0;
+}
+
+.trip-map-popup a {
+  color: #0f6e6b;
 }
 
 .day {

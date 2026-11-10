@@ -20,5 +20,5 @@ TripMaxxing is a personalized travel planner that turns a traveler's destination
 
 The first version will plan one- to three-day trips in New York City using curated sample travel data. Users will be able to change their budget or preferences and receive a newly generated itinerary with updated schedules, costs, and alternatives.
 
-Google sign-in and trips saved in this browser are available now. Live place, route, event, and weather features are planned for later versions.
+Google sign-in and trips saved in this browser are available now. The itinerary can show the destination on a Google map when a Maps API key is set. Live routes, events, and weather are planned for later versions.
 
