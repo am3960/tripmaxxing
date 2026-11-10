@@ -1,0 +1,99 @@
+:root {
+  color: #1c1915;
+  background: #f4f1ea;
+  font-family: "Segoe UI", "Avenir Next", sans-serif;
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #e4ddd2;
+  background: #fbf9f5;
+}
+
+.brand {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #6b645c;
+}
+
+.nav a.active {
+  color: #0f6e6b;
+  font-weight: 650;
+}
+
+.main {
+  width: min(880px, calc(100% - 2rem));
+  margin: 2rem auto 3rem;
+}
+
+.panel {
+  background: #fff;
+  border: 1px solid #e4ddd2;
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+.hero h1,
+.panel h1 {
+  margin: 0.25rem 0 0.75rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.eyebrow {
+  margin: 0;
+  color: #0f6e6b;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lede {
+  max-width: 38rem;
+  margin-top: 0;
+  color: #4e4842;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  background: #0f6e6b;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 650;
+}
